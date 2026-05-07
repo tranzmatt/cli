@@ -77,6 +77,15 @@ run() {
 # Primary binary: higgsfield
 run install -m 0755 "$TMPDIR/hf" "$BIN_DIR/higgsfield"
 [ "$OS" = "darwin" ] && run xattr -d com.apple.quarantine "$BIN_DIR/higgsfield" 2>/dev/null || true
+cat > "$TMPDIR/higgsfield.install.json" <<EOF
+{
+  "install_method": "curl",
+  "prefix": "$PREFIX",
+  "bin": "$BIN_DIR/higgsfield",
+  "version": "$VER_NO_V"
+}
+EOF
+run install -m 0644 "$TMPDIR/higgsfield.install.json" "$BIN_DIR/higgsfield.install.json"
 
 # higgs symlink (always)
 run ln -sf "$BIN_DIR/higgsfield" "$BIN_DIR/higgs"
