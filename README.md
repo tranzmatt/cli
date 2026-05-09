@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/v/@higgsfield/cli?style=flat-square)](https://www.npmjs.com/package/@higgsfield/cli)
 [![license](https://img.shields.io/github/license/higgsfield-ai/cli?style=flat-square)](./LICENSE)
 
-Generate images and videos from the terminal using 30+ [Higgsfield AI](https://higgsfield.ai) models — Nano Banana Pro, FLUX.2, Soul V2, Veo 3.1, Kling v3.0, Seedance 2.0, Marketing Studio, and more. Train face-faithful Soul characters and produce branded marketing assets without leaving your shell.
+Generate images, videos, and finished-video analysis from the terminal using 30+ [Higgsfield AI](https://higgsfield.ai) models — Nano Banana Pro, FLUX.2, Soul V2, Veo 3.1, Kling v3.0, Seedance 2.0, Marketing Studio, Virality Predictor, and more. Train face-faithful Soul characters and produce branded marketing assets without leaving your shell.
 
 ![Higgsfield CLI demo](./demo.png)
 
@@ -102,6 +102,18 @@ higgsfield generate create seedance_2_0 \
   --wait
 ```
 
+### Virality Predictor
+
+`brain_activity` is the technical job set type for Virality Predictor. It
+analyzes a finished video for hook strength, attention, retention, and viral
+potential, then prints scores plus an Open report link.
+
+```bash
+higgsfield generate create brain_activity --video ./ad.mp4 --wait
+higgsfield generate get <job_id>
+higgsfield generate wait <job_id>
+```
+
 ### Soul ID
 
 Train a Soul ID once:
@@ -148,10 +160,11 @@ higgsfield generate create text2image_soul_v2 \
 | `soul_location` | Soul Location |
 | `marketing_studio_image` | Marketing Studio Image |
 
-### Video (16)
+### Video (17)
 
 | job_set_type | name |
 |---|---|
+| `brain_activity` | Virality Predictor |
 | `veo3_1` | Google Veo 3.1 |
 | `veo3_1_lite` | Google Veo 3.1 Lite |
 | `veo3` | Google Veo 3 |

@@ -164,7 +164,13 @@ The `--prompt` flag is required by every model. Media inputs (`--image`, `--star
 | `--aspect_ratio` | false | `1:1` | `1:1`, `4:3`, `3:4`, `16:9`, `9:16` |
 | `--prompt` | true | — | string |
 
-## Video (16)
+## Video (17)
+
+### brain_activity — Virality Predictor
+
+| flag | required | default | values |
+|---|---|---|---|
+| `--video` (single) | true | — | UUID or path |
 
 ### cinematic_studio_3_0 — Cinematic Studio 3.0
 
