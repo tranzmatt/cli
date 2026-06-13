@@ -187,7 +187,7 @@ higgsfield generate create text2image_soul_v2 \
 | `soul_location` | Soul Location |
 | `marketing_studio_image` | Marketing Studio Image |
 
-### Video (17)
+### Video (18)
 
 | job_set_type | name |
 |---|---|
@@ -203,6 +203,7 @@ higgsfield generate create text2image_soul_v2 \
 | `wan2_6` | Wan 2.6 Video |
 | `minimax_hailuo` | Minimax Hailuo |
 | `grok_video` | Grok Video |
+| `grok_video_v15` | Grok Video 1.5 |
 | `cinematic_studio_3_0` | Cinematic Studio 3.0 |
 | `cinematic_studio_video` | Cinematic Studio Video |
 | `cinematic_studio_video_v2` | Cinematic Studio Video V2 |

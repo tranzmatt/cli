@@ -195,7 +195,7 @@ higgsfield generate create recraft_v4_1 --prompt "minimal vector logo mark for a
 | `--aspect_ratio` | false | `1:1` | `1:1`, `4:3`, `3:4`, `16:9`, `9:16` |
 | `--prompt` | true | — | string |
 
-## Video (17)
+## Video (18)
 
 ### brain_activity — Virality Predictor
 
@@ -242,6 +242,21 @@ higgsfield generate create recraft_v4_1 --prompt "minimal vector logo mark for a
 | `--duration` | false | `5` | integer |
 | `--start-image`, `--end-image`, `--image`, `--video`, `--audio` | false | — | UUID or path |
 | `--prompt` | true | — | string |
+
+### grok_video_v15 — Grok Video 1.5
+
+| flag | required | default | values |
+|---|---|---|---|
+| `--duration` | false | `5` | integer (2..15) |
+| one of `--start-image`, `--image` | true | — | UUID or path |
+| `--prompt` | true | — | string |
+| `--resolution` | false | `720p` | `480p`, `720p` |
+
+Example:
+
+```bash
+higgsfield generate create grok_video_v15 --prompt "cinematic handheld shot, neon rainy street" --start-image ./image.png --duration 5 --resolution 720p --wait
+```
 
 ### kling2_6 — Kling 2.6 Video
 
