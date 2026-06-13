@@ -14,6 +14,7 @@ Generate images, videos, and finished-video analysis from the terminal using 30+
 - [Quickstart](#quickstart)
 - [Examples](#examples)
 - [Models](#models)
+- [Workflows](#workflows)
 - [Commands](#commands)
 - [Flags](#flags)
 - [Updating](#updating)
@@ -114,6 +115,31 @@ higgsfield generate get <job_id>
 higgsfield generate wait <job_id>
 ```
 
+### Draw To Video
+
+Edit a video from a source clip plus an edited sketch frame:
+
+```bash
+higgsfield generate workflow draw_to_video \
+  --video ./source.mp4 \
+  --sketch ./frame.png \
+  --timestamp 3.2 \
+  --prompt "make the jacket red" \
+  --wait
+```
+
+### Reframe
+
+Reframe a source video for a new aspect ratio:
+
+```bash
+higgsfield generate workflow reframe \
+  --video ./source.mp4 \
+  --aspect-ratio 9:16 \
+  --resolution 720p \
+  --wait
+```
+
 ### Soul ID
 
 Train a Soul ID once:
@@ -182,6 +208,50 @@ higgsfield generate create text2image_soul_v2 \
 | `soul_cast` | Soul Cast |
 | `marketing_studio_video` | Marketing Studio Video |
 
+## Workflows
+
+Workflows are higher-level generation flows with their own parameter schemas.
+Use `workflow list` to discover available workflows and `workflow get` to
+inspect the parameters before creating a job.
+
+```bash
+higgsfield workflow list
+higgsfield workflow get draw_to_video
+higgsfield workflow get reframe --json
+```
+
+Create workflow jobs through `generate workflow`:
+
+```bash
+higgsfield generate workflow draw_to_video \
+  --video ./source.mp4 \
+  --sketch ./frame.png \
+  --timestamp 3.2 \
+  --prompt "make the jacket red" \
+  --wait
+
+higgsfield generate workflow reframe \
+  --video ./source.mp4 \
+  --aspect-ratio 9:16 \
+  --resolution 720p \
+  --wait
+```
+
+Estimate workflow cost through `generate cost workflow`:
+
+```bash
+higgsfield generate cost workflow draw_to_video --duration 8.2 --resolution 720p
+higgsfield generate cost workflow reframe --duration 7.1 --resolution 1080p
+```
+
+Fetch or wait for workflow jobs with the same job commands used by model
+generations:
+
+```bash
+higgsfield generate get <job_id>
+higgsfield generate wait <job_id>
+```
+
 ## Commands
 
 | Command | Purpose |
@@ -191,6 +261,7 @@ higgsfield generate create text2image_soul_v2 \
 | `higgsfield workspace` | list / select / unset billing workspace |
 | `higgsfield model` | list models, inspect parameter schema |
 | `higgsfield generate` | create / cost / wait / get / list jobs |
+| `higgsfield workflow` | list workflows, inspect workflow parameter schema |
 | `higgsfield upload` | upload an image / video / audio file |
 | `higgsfield soul-id` | train and manage Soul characters |
 | `higgsfield marketing-studio` | branded ads (avatars, products, ad references, brand kits, ad formats, DTC Ads Engine) |
