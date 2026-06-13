@@ -5,7 +5,7 @@ Generated from `higgsfield model list` and `higgsfield model get <job_set_type>`
 The `--prompt` flag is required by every model. Media inputs (`--image`, `--start-image`, `--end-image`, `--video`, `--audio`) accept either a UUID (upload id or previous job id) or a local file path; paths are auto-uploaded.
 
 
-## Image (19)
+## Image (20)
 
 ### cinematic_studio_2_5 — Cinematic Studio 2.5
 
@@ -61,6 +61,18 @@ The `--prompt` flag is required by every model. Media inputs (`--image`, `--star
 | `--aspect_ratio` | false | `1:1` | `1:1`, `4:3`, `3:4`, `16:9`, `9:16` |
 | `--image` (1+) | false | — | UUID or path |
 | `--prompt` | true | — | string |
+
+### image_background_remover — Image Background Remover
+
+| flag | required | default | values |
+|---|---|---|---|
+| `--image` (single) | true | — | UUID or path |
+
+Example:
+
+```bash
+higgsfield generate create image_background_remover --image ./image.png --wait
+```
 
 ### kling_omni_image — Kling O1 Image
 

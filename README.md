@@ -163,7 +163,7 @@ higgsfield generate create text2image_soul_v2 \
 
 30+ image and video models. Per-model parameters, defaults, and enums: [MODELS.md](./MODELS.md). Live catalog: `higgsfield model list`.
 
-### Image (19)
+### Image (20)
 
 | job_set_type | name |
 |---|---|
@@ -180,6 +180,7 @@ higgsfield generate create text2image_soul_v2 \
 | `openai_hazel` | OpenAI Hazel |
 | `recraft_v4_1` | Recraft V4.1 |
 | `image_auto` | Image Auto |
+| `image_background_remover` | Image Background Remover |
 | `z_image` | Z Image |
 | `kling_omni_image` | Kling O1 Image |
 | `cinematic_studio_2_5` | Cinematic Studio 2.5 |
