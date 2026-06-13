@@ -2,7 +2,7 @@
 
 Generated from `higgsfield model list` and `higgsfield model get <job_set_type>`. Run those commands for the live schema.
 
-The `--prompt` flag is required by every model. Media inputs (`--image`, `--start-image`, `--end-image`, `--video`, `--audio`) accept either a UUID (upload id or previous job id) or a local file path; paths are auto-uploaded.
+Required flags are listed per model below. Media inputs (`--image`, `--start-image`, `--end-image`, `--video`, `--audio`) accept either a UUID (upload id or previous job id) or a local file path; paths are auto-uploaded.
 
 
 ## Image (20)
@@ -207,7 +207,7 @@ higgsfield generate create recraft_v4_1 --prompt "minimal vector logo mark for a
 | `--aspect_ratio` | false | `1:1` | `1:1`, `4:3`, `3:4`, `16:9`, `9:16` |
 | `--prompt` | true | — | string |
 
-## Video (18)
+## Video (19)
 
 ### brain_activity — Virality Predictor
 
@@ -348,6 +348,18 @@ higgsfield generate create grok_video_v15 --prompt "cinematic handheld shot, neo
 | `--aspect_ratio` | false | `1:1` | `1:1`, `4:3`, `3:4`, `16:9`, `9:16` |
 | `--budget` | false | `50` | integer |
 | `--prompt` | false | — | object |
+
+### video_background_remover — Video Background Remover
+
+| flag | required | default | values |
+|---|---|---|---|
+| `--video` (single) | true | — | UUID or path |
+
+Example:
+
+```bash
+higgsfield generate create video_background_remover --video ./video.mp4 --wait
+```
 
 ### veo3 — Google Veo 3
 

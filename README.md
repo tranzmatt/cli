@@ -188,7 +188,7 @@ higgsfield generate create text2image_soul_v2 \
 | `soul_location` | Soul Location |
 | `marketing_studio_image` | Marketing Studio Image |
 
-### Video (18)
+### Video (19)
 
 | job_set_type | name |
 |---|---|
@@ -210,6 +210,7 @@ higgsfield generate create text2image_soul_v2 \
 | `cinematic_studio_video_v2` | Cinematic Studio Video V2 |
 | `soul_cast` | Soul Cast |
 | `marketing_studio_video` | Marketing Studio Video |
+| `video_background_remover` | Video Background Remover |
 
 ## Workflows
 
