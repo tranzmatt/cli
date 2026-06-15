@@ -452,3 +452,30 @@ Example:
 ```bash
 higgsfield generate create multi_image_to_3d --image ./front.png --image ./side.png --should_texture true --wait
 ```
+
+## Audio (2)
+
+### sonilo_music — Sonilo Music
+
+| flag | required | default | values |
+|---|---|---|---|
+| `--duration` | true | — | number |
+| `--prompt` | true | — | string |
+
+Example:
+
+```bash
+higgsfield generate create sonilo_music --prompt "cinematic synthwave track" --duration 12 --wait
+```
+
+### mirelo_text_to_audio — Mirelo Text to Audio
+
+| flag | required | default | values |
+|---|---|---|---|
+| `--prompt` | true | — | string |
+
+Example:
+
+```bash
+higgsfield generate create mirelo_text_to_audio --prompt "glass breaking in a large hall" --duration 4 --wait
+```
