@@ -347,6 +347,7 @@ higgsfield generate create grok_video_v15 --prompt "cinematic handheld shot, neo
 | flag | required | default | values |
 |---|---|---|---|
 | `--aspect_ratio` | false | `16:9` | `auto`, `16:9`, `9:16`, `4:3`, `3:4`, `1:1`, `21:9` |
+| `--bitrate_mode` | false | `standard` | `standard`, `high` |
 | `--duration` | false | `5` | integer |
 | `--genre` | false | `auto` | `auto`, `action`, `horror`, `comedy`, `noir`, `drama`, `epic` |
 | `--start-image`, `--end-image`, `--image`, `--video`, `--audio` | false | — | UUID or path |
