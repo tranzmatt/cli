@@ -220,7 +220,7 @@ higgsfield generate create recraft_v4_1 --prompt "minimal vector logo mark for a
 | `--aspect_ratio` | false | `1:1` | `1:1`, `4:3`, `3:4`, `16:9`, `9:16` |
 | `--prompt` | true | — | string |
 
-## Video (19)
+## Video (20)
 
 ### brain_activity — Virality Predictor
 
@@ -303,6 +303,22 @@ higgsfield generate create grok_video_v15 --prompt "cinematic handheld shot, neo
 | `--mode` | false | `std` | `pro`, `std` |
 | `--prompt` | true | — | string |
 | `--sound` | false | `on` | `on`, `off` |
+
+### kling3_0_turbo — Kling 3.0 Turbo
+
+| flag | required | default | values |
+|---|---|---|---|
+| `--aspect_ratio` | false | `16:9` | `16:9`, `9:16`, `1:1` |
+| `--duration` | false | `5` | integer (3..15) |
+| one of `--start-image` | false | — | UUID or path |
+| `--prompt` | true | — | string |
+| `--resolution` | false | `720p` | `720p`, `1080p` |
+
+Example:
+
+```bash
+higgsfield generate create kling3_0_turbo --prompt "fast handheld product reveal on a clean studio table" --start-image ./first.png --duration 5 --resolution 720p --wait
+```
 
 ### marketing_studio_video — Marketing Studio Video
 

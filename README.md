@@ -189,7 +189,7 @@ higgsfield generate create text2image_soul_v2 \
 | `soul_location` | Soul Location |
 | `marketing_studio_image` | Marketing Studio Image |
 
-### Video (19)
+### Video (20)
 
 | job_set_type | name |
 |---|---|
@@ -198,6 +198,7 @@ higgsfield generate create text2image_soul_v2 \
 | `veo3_1_lite` | Google Veo 3.1 Lite |
 | `veo3` | Google Veo 3 |
 | `kling3_0` | Kling v3.0 |
+| `kling3_0_turbo` | Kling 3.0 Turbo |
 | `kling2_6` | Kling 2.6 Video |
 | `seedance_2_0` | Seedance 2.0 |
 | `seedance1_5` | Seedance 1.5 Pro |
