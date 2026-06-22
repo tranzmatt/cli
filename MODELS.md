@@ -470,7 +470,7 @@ Example:
 higgsfield generate create multi_image_to_3d --image ./front.png --image ./side.png --should_texture true --wait
 ```
 
-## Audio (2)
+## Audio (3)
 
 ### sonilo_music — Sonilo Music
 
@@ -495,4 +495,21 @@ Example:
 
 ```bash
 higgsfield generate create mirelo_text_to_audio --prompt "glass breaking in a large hall" --duration 4 --wait
+```
+
+### text2speech_v2 — Text to Speech
+
+| flag | required | default | values |
+|---|---|---|---|
+| `--model` | true | — | `elevenlabs`, `minimax`, `seed_speech`, `vibe_voice`, `cozy_voice` |
+| `--prompt` | true | — | string |
+| `--voice_id` | true | — | string |
+| `--voice_type` | true | — | `preset`, `element` |
+
+Discover voices (`--voice_id` / `--voice_type`) with `higgsfield voices list`.
+
+Example:
+
+```bash
+higgsfield generate create text2speech_v2 --prompt "Hello from Higgsfield" --model elevenlabs --voice_type preset --voice_id <voice_id> --wait
 ```

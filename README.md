@@ -140,6 +140,41 @@ higgsfield generate workflow reframe \
   --wait
 ```
 
+### Voice Change
+
+Replace the voice on a source video with a chosen voice:
+
+```bash
+higgsfield generate workflow voice-change \
+  --video ./source.mp4 \
+  --voice_type preset \
+  --voice_id <voice_id> \
+  --wait
+```
+
+### Dubbing
+
+Dub a source video into another language (`--target_language` is an ISO-639-3 code,
+e.g. `eng`, `spa`, `fra`, `deu`, `jpn`; run `higgsfield workflow get dubbing` for the full list):
+
+```bash
+higgsfield generate workflow dubbing \
+  --video ./source.mp4 \
+  --target_language spa \
+  --wait
+```
+
+### Voices
+
+List available voices (presets + your custom voices) to get a `voice_id` for
+`text2speech_v2` and `voice-change`. Use a voice's `id` as `--voice_id` and its
+`type` (`preset`/`element`) as `--voice_type`:
+
+```bash
+higgsfield voices list
+higgsfield voices get <voice_id> --json
+```
+
 ### Soul ID
 
 Train a Soul ID once:
@@ -220,12 +255,27 @@ higgsfield generate create text2image_soul_v2 \
 |---|---|
 | `multi_image_to_3d` | Multi-Image to 3D |
 
-### Audio (2)
+### Audio (3)
 
 | job_set_type | name |
 |---|---|
 | `sonilo_music` | Sonilo Music |
 | `mirelo_text_to_audio` | Mirelo Text to Audio |
+| `text2speech_v2` | Text to Speech |
+
+`text2speech_v2` turns text into speech with a chosen voice. Pick the engine with
+`--model` (`elevenlabs`, `minimax`, `seed_speech`, `vibe_voice`, `cozy_voice`) and the
+voice with `--voice_type` (`preset` or `element`) + `--voice_id`. Discover voices with
+`higgsfield voices list`.
+
+```bash
+higgsfield generate create text2speech_v2 \
+  --prompt "Hello from Higgsfield" \
+  --model elevenlabs \
+  --voice_type preset \
+  --voice_id <voice_id> \
+  --wait
+```
 
 ## Workflows
 
@@ -237,6 +287,8 @@ inspect the parameters before creating a job.
 higgsfield workflow list
 higgsfield workflow get draw_to_video
 higgsfield workflow get reframe --json
+higgsfield workflow get voice-change
+higgsfield workflow get dubbing
 ```
 
 Create workflow jobs through `generate workflow`:
@@ -254,6 +306,17 @@ higgsfield generate workflow reframe \
   --aspect-ratio 9:16 \
   --resolution 720p \
   --wait
+
+higgsfield generate workflow voice-change \
+  --video ./source.mp4 \
+  --voice_type preset \
+  --voice_id <voice_id> \
+  --wait
+
+higgsfield generate workflow dubbing \
+  --video ./source.mp4 \
+  --target_language spa \
+  --wait
 ```
 
 Estimate workflow cost through `generate cost workflow`:
@@ -262,6 +325,8 @@ Estimate workflow cost through `generate cost workflow`:
 higgsfield generate cost workflow draw_to_video --duration 8.2 --resolution 720p
 higgsfield generate cost workflow reframe --duration 7.1 --resolution 1080p
 ```
+
+`voice-change` and `dubbing` do not support cost estimation.
 
 Fetch or wait for workflow jobs with the same job commands used by model
 generations:
@@ -281,6 +346,7 @@ higgsfield generate wait <job_id>
 | `higgsfield model` | list models, inspect parameter schema |
 | `higgsfield generate` | create / cost / wait / get / list jobs |
 | `higgsfield workflow` | list workflows, inspect workflow parameter schema |
+| `higgsfield voices` | list voices / inspect a voice for text2speech & voice-change |
 | `higgsfield upload` | upload an image / video / audio file |
 | `higgsfield soul-id` | train and manage Soul characters |
 | `higgsfield marketing-studio` | branded ads (avatars, products, ad references, brand kits, ad formats, DTC Ads Engine) |
